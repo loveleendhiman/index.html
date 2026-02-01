@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Happy Birthday 🎉</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background: linear-gradient(#87cefa, #b0e0ff); /* SKY BLUE */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        /* ⭐ TITLE */
+        h1 {
+            font-size: 55px;
+            color: white;
+            margin-bottom: 25px;
+            text-shadow: 2px 2px 6px #000;
+            position: relative;
+        }
+
+        h1::before,
+        h1::after {
+            content: "⭐ ✨ ⭐";
+            font-size: 30px;
+            position: absolute;
+            top: -20px;
+        }
+
+        h1::before {
+            left: -120px;
+        }
+
+        h1::after {
+            right: -120px;
+        }
+
+        /* 🤍 BOX */
+        .box {
+            background: white;
+            padding: 35px 45px;
+            border-radius: 20px;
+            box-shadow: 0px 10px 25px rgba(0,0,0,0.25);
+            text-align: center;
+            position: relative;
+        }
+
+        /* 💖 HEARTS AROUND BOX */
+        .heart {
+            position: absolute;
+            color: #ff6fae;
+            font-size: 22px;
+        }
+
+        .h1 { top: -15px; left: -15px; }
+        .h2 { top: -15px; right: -15px; }
+        .h3 { bottom: -15px; left: -15px; }
+        .h4 { bottom: -15px; right: -15px; }
+
+        .question {
+            font-size: 22px;
+            margin-bottom: 25px;
+            color: #333;
+        }
+
+        button {
+            padding: 12px 28px;
+            font-size: 18px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        #yes {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        #no {
+            background-color: #ff4d4d;
+            color: white;
+            position: absolute;
+        }
+
+        .result {
+            font-size: 24px;
+            color: #ff4f9a;
+            margin-top: 20px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ✏️ CHANGE NAME -->
+    <h1>Happy Birthday Karan 🎂</h1>
+
+    <div class="box">
+
+        <!-- 💖 HEARTS -->
+        <div class="heart h1">💖</div>
+        <div class="heart h2">💖</div>
+        <div class="heart h3">💖</div>
+        <div class="heart h4">💖</div>
+
+        <!-- ✏️ CHANGE QUESTION -->
+        <div class="question">
+            Will you be my valentine karan? 💖
+        </div>
+
+        <button id="yes" onclick="yesClicked()">YES 💖</button>
+        <button id="no" onmouseover="moveNo()">NO</button>
+
+        <div class="result" id="result">
+            Yayy ab to fasgya 🥹💙
+        </div>
+    </div>
+
+    <script>
+        function moveNo() {
+            let box = document.querySelector(".box");
+            let noBtn = document.getElementById("no");
+
+            let maxX = box.clientWidth - noBtn.offsetWidth;
+            let maxY = box.clientHeight - noBtn.offsetHeight;
+
+            let x = Math.random() * maxX;
+            let y = Math.random() * maxY;
+
+            noBtn.style.left = x + "px";
+            noBtn.style.top = y + "px";
+        }
+
+        function yesClicked() {
+            document.getElementById("result").style.display = "block";
+        }
+    </script>
+
+</body>
+</html>
